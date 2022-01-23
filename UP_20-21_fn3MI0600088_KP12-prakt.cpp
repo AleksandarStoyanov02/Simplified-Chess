@@ -41,6 +41,9 @@ void DeleteBoard(char** Board, int SizeOfBoard) {
     }
     delete[] Board;
 }
+
+//Validations for the Board
+
 bool IsLegalMoveWhite(int SizeOfBoard, int Wrow, int Wcol) {
     if (Wrow < 0 || Wrow >= SizeOfBoard || Wcol < 0 || Wcol >= SizeOfBoard) {
         return false;
@@ -53,6 +56,8 @@ bool IsLegalMoveBlack(int SizeOfBoard, int Brow, int Bcol) {
     }
     return true;
 }
+
+//Visualisation of the Board
 
 void ShowBoard(char** board, int sizeOfBoard)
 {
@@ -92,6 +97,8 @@ bool IsInCheck(char** Board, int SizeOfBoard, int LocationOf1Rook[], int Locatio
     }
     return false;
 }
+
+//Move function for the white rooks and the white king
 
 bool Move(char** Board, int SizeOfBoard, int Wrow, int Wcol, int* LocationOf1Rook, int* LocationOf2Rook, int* LocationOfWhiteKing, int* LocationOfBlackKing, char Piece) {
     if (!IsLegalMoveWhite(SizeOfBoard, Wrow, Wcol)) {
@@ -322,6 +329,8 @@ bool GeneratedBlackKingMove(char** Board, int SizeOfBoard, int* LocationOf1Rook,
     return false;
 }
 
+//Checks all the possible moves for the Black king (case 1 is top left of the king's location( 1 row less and 1 column less) , case 2 is 1 row less same column , etc.)
+
 bool PossibleBlackMove(char** Board, int SizeOfBoard, int* LocationOf1Rook, int* LocationOf2Rook, int* LocationOfWhiteKing, int* LocationOfBlackKing, int move, bool typeOfAction, bool* rook1Exists, bool* rook2Exists) {
     bool result = false;
     switch (move) {
@@ -361,6 +370,8 @@ bool PossibleBlackMove(char** Board, int SizeOfBoard, int* LocationOf1Rook, int*
     return result;
 }
 
+//Randomly moves the king on a possible move location
+
 void MoveBlackKing(char** Board, int SizeOfBoard, int* LocationOf1Rook, int* LocationOf2Rook, int* LocationOfWhiteKing, int* LocationOfBlackKing, bool* rook1Exists, bool* rook2Exists) {
     bool CheckForCheckmateOrStalemate = false;
     srand((unsigned int)time(NULL));
@@ -372,12 +383,14 @@ void MoveBlackKing(char** Board, int SizeOfBoard, int* LocationOf1Rook, int* Loc
     } while (!result);
 }
 
+//Your turn
+
 void Turn(char**& Board, int SizeOfBoard, int* LocationOf1Rook, int* LocationOf2Rook, int* LocationOfWhiteKing, int* LocationOfBlackKing, bool rook1Exists, bool rook2Exists) {
     char Piece;
     int WRow;
     int WCol;
     bool result;
-    int breakpoint;
+    bool breakpoint;
     do {
         do {
             breakpoint = false;
