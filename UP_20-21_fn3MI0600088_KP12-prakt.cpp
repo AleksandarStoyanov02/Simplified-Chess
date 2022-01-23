@@ -434,11 +434,11 @@ bool IsCheckmateOrStalemate(char** Board, int SizeOfBoard, int* LocationOf1Rook,
         }
     }
     if (IsInCheck(Board, SizeOfBoard, LocationOf1Rook, LocationOf2Rook, LocationOfWhiteKing, LocationOfBlackKing[0], LocationOfBlackKing[1])) {
-        cout << "!Checkmate!";
+        cout << "!Checkmate!" << endl;
         return true;
     }
     else {
-        cout << "!Stalemate!";
+        cout << "!Stalemate!" << endl;
         return true;
     }
 }
@@ -502,6 +502,8 @@ void NewGame(int SizeOfBoard) {
     DeleteBoard(Board, SizeOfBoard);
     system("Pause");
 }
+
+// Minimum size of board is 5x5
 
 void ChangeSizeOfBoard(int& SizeOfBoard) {
     system("CLS");
