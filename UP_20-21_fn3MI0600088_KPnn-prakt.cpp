@@ -17,6 +17,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include<windows.h>
+#include "Header.h"
 using namespace std;
 
 char** Create_Board(int SizeOfBoard) {
