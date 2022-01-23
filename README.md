@@ -1,0 +1,2 @@
+# Simplified-Chess
+Course project
